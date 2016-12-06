@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="post-preview">
+    <h1>{{ post.title }}</h1>
+    {% if post.tags %}
+        <span>Tags:&nbsp;</span>
+        {% for tag in post.tags %}
+            <span class="label label-info">{{ tag }}</span>&nbsp;
+        {% endfor %}
+    {% endif %}
+    <p class="post-meta">Posted By
+        <a href="#">{{ post.author.username }} on {{ post.create_time| my_format_datetime }}</a>
+    </p>
+</div>
+<hr>
+<div>
+    {% autoescape false %}
+    {{ post.content |safe }}
+    {% endautoescape %}
+</div>
+{% endblock %}
