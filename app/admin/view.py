@@ -43,9 +43,8 @@ class CKTextAreaField(fields.TextAreaField):
 
 class UserView(ModelView):
     can_delete = False
-    can_create = False
+    # can_create =
 
-    #
     def is_accessible(self):
         return current_user.is_authenticated()
 

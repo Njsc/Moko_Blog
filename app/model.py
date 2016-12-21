@@ -27,7 +27,7 @@ class User(db.Document):
 
 
 class Post(db.Document):
-    title = db.StringField(required=9, max_length=64)
+    title = db.StringField(required=True, max_length=64)
     content = db.StringField(required=True)
     author = db.ReferenceField(User)
     tags = db.ListField(db.StringField(max_length=32))
@@ -41,3 +41,4 @@ class Post(db.Document):
     meta = {
         'ordering': ['-create_time']
     }
+
